@@ -1,0 +1,126 @@
+/* src/components/Header/Header.css */
+header {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.logo i {
+  color: #ff6b6b;
+  margin-right: 0.5rem;
+  font-size: 2.2rem;
+}
+
+.logo span {
+  color: #ff6b6b;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #666;
+  margin-left: 1rem;
+  flex-grow: 1;
+  text-align: center;
+  font-style: italic;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.sign-in-btn,
+.sign-up-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ff4d4d);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+.sign-in-btn:hover,
+.sign-up-btn:hover {
+  background: linear-gradient(45deg, #ff4d4d, #ff6b6b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 0.75rem;
+    font-size: 1.7rem;
+  }
+
+  .logo i {
+    font-size: 1.9rem;
+  }
+
+  .tagline {
+    margin-left: 0;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+
+  .sign-in-btn,
+  .sign-up-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .logo i {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+  }
+
+  .sign-in-btn,
+  .sign-up-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
