@@ -11,6 +11,9 @@ const Header = ({ onSignIn, onSignUp }) => {
       </div>
       <p className="tagline">Explore outfits in immersive 3D</p>
       <div className="header-actions">
+        <button className="cart-btn" onClick={handleCart}>
+          <i className="fas fa-cart-shopping mr-2"></i> Cart
+        </button>
         <button className="sign-in-btn" onClick={onSignIn}>
           <i className="fas fa-user-circle mr-2"></i> Sign In
         </button>

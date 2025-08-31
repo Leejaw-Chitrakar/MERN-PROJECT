@@ -47,7 +47,7 @@ header {
   gap: 1rem;
   margin-left: auto;
 }
-
+.cart-btn,
 .sign-in-btn,
 .sign-up-btn {
   background: linear-gradient(45deg, #ff6b6b, #ff4d4d);
@@ -61,7 +61,7 @@ header {
   outline: none;
   box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
 }
-
+.cart-btn:hover,
 .sign-in-btn:hover,
 .sign-up-btn:hover {
   background: linear-gradient(45deg, #ff4d4d, #ff6b6b);

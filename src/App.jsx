@@ -1,18 +1,19 @@
 // src/App.jsx
-import React from 'react';
+import React from "react";
+import { CartProvider } from "./context/CartContext";
 // import Home from './pages/Home';
-import { RouterProvider } from 'react-router-dom'
-import router from './routes'
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
+import "./App.css";
 
 function App() {
-  
   return (
-    <div className="App">
-      {/* <Home /> */}
-    <RouterProvider router={router} />
-
-    </div>
+    <CartProvider>
+      <div className="App">
+        {/* <Home /> */}
+        <RouterProvider router={router} />
+      </div>
+    </CartProvider>
   );
 }
 

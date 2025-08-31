@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import "./../components/Header/Header.css"; // Import header styles
@@ -7,6 +8,9 @@ const RootLayout = () => {
   const token = localStorage.getItem("accessToken");
   const navigate = useNavigate();
 
+  const handleCart = () => {
+    navigate("/cart");
+  };
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
@@ -20,22 +24,56 @@ const RootLayout = () => {
     navigate("/signup");
   };
 
+  const { cartCount, cartTotal } = useCart();
   return (
     <div>
       <header>
         <div className="logo">
           <i className="fas fa-tshirt"></i>
-            <Link to="/" style={{textDecoration: "none"}}><span>VibeCouture</span>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <span>VibeCouture</span>
           </Link>
         </div>
         <p className="tagline">Explore outfits in immersive 3D</p>
         <div className="header-actions">
+          <button
+            className="cart-btn"
+            onClick={handleCart}
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <i className="fas fa-shopping-cart mr-2"></i>
+            <span style={{ marginRight: 8 }}>Cart</span>
+            <span
+              style={{
+                background: "#ff6b6b",
+                color: "#fff",
+                borderRadius: "50%",
+                fontSize: "1rem",
+              }}
+            >
+              {cartCount}
+            </span>
+          </button>
           {token ? (
             <>
-              <Link to="/" style={{ color: "grey" , textDecoration:"none"}} >Home</Link>
-              <Link to="/profile" style={{ color: "grey" , textDecoration:"none"}} >Profile</Link>
+              <Link to="/" style={{ color: "grey", textDecoration: "none" }}>
+                Home
+              </Link>
+              <Link
+                to="/profile"
+                style={{ color: "grey", textDecoration: "none" }}
+              >
+                Profile
+              </Link>
               {/* <Link to="/complain" style={{ color: "grey" , textDecoration:"none"}} ></Link> */}
-              <Button type="primary" onClick={handleLogout} style={{ color: "white" }}>
+              <Button
+                type="primary"
+                onClick={handleLogout}
+                style={{ color: "white" }}
+              >
                 Logout
               </Button>
             </>

@@ -23,7 +23,7 @@ const OutfitCard = ({ outfit, onView3D, onAddToCart, onBuyNow }) => {
             className="add-to-cart-btn"
             onClick={(e) => {
               e.stopPropagation();
-              onAddToCart(outfit.name);
+              onAddToCart();
             }}
           >
             <i className="fas fa-cart-plus"></i> Add to Cart
