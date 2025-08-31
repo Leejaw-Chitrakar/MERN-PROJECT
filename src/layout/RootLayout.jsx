@@ -8,6 +8,9 @@ const RootLayout = () => {
   const token = localStorage.getItem("accessToken");
   const navigate = useNavigate();
 
+  const handleCart = () => {
+    navigate("/cart");
+  };
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
@@ -82,6 +85,9 @@ const RootLayout = () => {
             </>
           ) : (
             <>
+              <button className="cart-btn" onClick={handleCart}>
+                <i className="fas fa-cart-shopping mr-2"></i> Cart
+              </button>
               <button className="sign-in-btn" onClick={handleSignIn}>
                 <i className="fas fa-user-circle mr-2"></i> Sign In
               </button>

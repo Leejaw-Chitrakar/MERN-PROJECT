@@ -11,6 +11,7 @@ export const CartProvider = ({ children }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
 
+
   const addToCart = (product) => {
     setCart((prevCart) => {
       const prev = { ...prevCart };
@@ -26,6 +27,27 @@ export const CartProvider = ({ children }) => {
     });
     setMessage(`${product.name} added to cart!`);
     setShowMessage(true);
+  };
+
+  const updateCartItem = (id, quantity) => {
+    setCart((prevCart) => {
+      if (!prevCart[id]) return prevCart;
+      const updated = { ...prevCart };
+      if (quantity <= 0) {
+        delete updated[id];
+      } else {
+        updated[id] = { ...updated[id], quantity };
+      }
+      return updated;
+    });
+  };
+
+  const removeFromCart = (id) => {
+    setCart((prevCart) => {
+      const updated = { ...prevCart };
+      delete updated[id];
+      return updated;
+    });
   };
 
   useEffect(() => {
@@ -48,7 +70,7 @@ export const CartProvider = ({ children }) => {
   }, [showMessage]);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartCount, cartTotal }}>
+    <CartContext.Provider value={{ cart, addToCart, cartCount, cartTotal, updateCartItem, removeFromCart }}>
       {children}
       {showMessage && (
         <div
