@@ -51,16 +51,10 @@ const RootLayout = () => {
                 background: "#ff6b6b",
                 color: "#fff",
                 borderRadius: "50%",
-                padding: "0.2em 0.6em",
-                fontWeight: 700,
                 fontSize: "1rem",
-                marginRight: 8,
               }}
             >
               {cartCount}
-            </span>
-            <span style={{ fontWeight: 600 }}>
-              NRS {cartTotal.toLocaleString()}
             </span>
           </button>
           {token ? (
