@@ -32,22 +32,36 @@ const SignupPage = () => {
         id="SignUpPage"
         style={{
           //   backgroundColor: "#f0f2f5",
-          background: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center fixed",
+          background:
+            "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center fixed",
           padding: "0px  0  0 15px ",
           height: "80vh",
+          position: "relative",
         }}
       >
-        <div className="description">
-          <h2  className="login-title"
+        <div
+          className="description"
+          style={{ position: "absolute", left: "7%" }}
+        >
+          <h1
+            className="login-title"
             style={{
               fontWeight: "bold",
               color: "#f8f8f8ff",
               textAlign: "center",
+              fontSize: "32px",
             }}
           >
             Welcome to the VibeCourture
-          </h2>
-          <p style={{ textAlign: "center", color: "#d7d7d8ff", fontSize: "14px" }}>
+          </h1>
+          <p
+            style={{
+              textAlign: "center",
+              color: "#d7d7d8ff",
+              fontSize: "14px",
+              fontSize: "24px",
+            }}
+          >
             Sign up to experience the best in fashion and style.
           </p>
         </div>
@@ -64,10 +78,15 @@ const SignupPage = () => {
               padding: "20px",
               borderRadius: "30px",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
+              position: "absolute",
+              top: "6%",
+              left: "64%",
+              height: "420px",
+              width: "350px",
             }}
           >
             {/* this form is a built in form in the name of antd library so we don't need to create a form from scratch */}
-            <Form onFinish={onFinish} style={{}}>
+            <Form onFinish={onFinish} layout="vertical">
               {/* for Username */}
               <tr>
                 <Form.Item label="Username" name="username" required>
