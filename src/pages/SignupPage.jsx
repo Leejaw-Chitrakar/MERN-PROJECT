@@ -58,7 +58,6 @@ const SignupPage = () => {
             style={{
               textAlign: "center",
               color: "#d7d7d8ff",
-              fontSize: "14px",
               fontSize: "24px",
             }}
           >
