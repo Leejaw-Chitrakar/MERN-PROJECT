@@ -18,12 +18,18 @@ const Home = () => {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
+  const [priceFilter, setPriceFilter] = useState("");
 
+  const handlePriceChange = (event) => {
+    setPriceFilter(event.target.value);
+  };
   const { addToCart } = useCart();
   const filteredOutfits = outfits.filter(
     (outfit) => outfit.gender === activeGender
   );
-
+  const filterPrice = outfits.filter((outfit) => {
+    return outfit.price <= priceFilter;
+  });
   const handleView3D = (outfit) => {
     setSelectedOutfit(outfit);
     setIsViewerOpen(true);
@@ -101,11 +107,49 @@ const Home = () => {
           >
             Men's Collection
           </button>
+          <h5>Filter Range:</h5>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            className="priceCollection"
+            onChange={handlePriceChange}
+            value={priceFilter}
+            placeholder="enter your range"
+          />
+          
         </div>
 
         <div className={activeGender === "women" ? "" : "hidden"}>
           <h2 className="section-header">Women's Collection</h2>
-          <div className="gallery">
+          <h3>Available Products:</h3>
+            <div className="gallery">
+            {filterPrice
+              .filter((outfit) => outfit.gender === activeGender)
+              .map((outfit) => (
+                <ul style={{ textDecoration: "none" }}>
+                  <li key={outfit.id}>
+                    {/* {product.name} - Rs. {product.price} */}
+                    {/* {filterPrice
+              .filter((outfit) => outfit.gender === "women")
+              .map((outfit) => (
+                
+              ))} */}
+                    <OutfitCard
+                      key={outfit.id}
+                      outfit={outfit}
+                      onView3D={() => handleView3D(outfit)}
+                      onAddToCart={() => handleAddToCart(outfit.id)}
+                      onBuyNow={handleBuyNow}
+                    />
+                  </li>
+          </ul>
+              ))}
+          </div>
+          <div
+            className="gallery"
+            style={{ display: Number(priceFilter) === 0 ? "" : "none" }}
+          >
             {filteredOutfits
               .filter((outfit) => outfit.gender === "women")
               .map((outfit) => (
@@ -116,13 +160,41 @@ const Home = () => {
                   onAddToCart={() => handleAddToCart(outfit.id)}
                   onBuyNow={handleBuyNow}
                 />
+                // <h2 style={{ display: Number(priceFilter) === 0 || Number(priceFilter)<== outfit.price? "none" : "" }}>No any Items or Product available</h2>
               ))}
           </div>
         </div>
 
-        <div className={activeGender === "men" ? "" : "hidden"}>
-          <h2 className="section-header">Men's Collection</h2>
-          <div className="gallery">
+         <div className={activeGender === "men" ? "" : "hidden"}>
+          <h2 className="section-header">Women's Collection</h2>
+          <h3>Available Products:</h3>
+            <div className="gallery">
+            {filterPrice
+              .filter((outfit) => outfit.gender === activeGender)
+              .map((outfit) => (
+                <ul style={{ textDecoration: "none" }}>
+                  <li key={outfit.id}>
+                    {/* {product.name} - Rs. {product.price} */}
+                    {/* {filterPrice
+              .filter((outfit) => outfit.gender === "men")
+              .map((outfit) => (
+                
+              ))} */}
+                    <OutfitCard
+                      key={outfit.id}
+                      outfit={outfit}
+                      onView3D={() => handleView3D(outfit)}
+                      onAddToCart={() => handleAddToCart(outfit.id)}
+                      onBuyNow={handleBuyNow}
+                    />
+                  </li>
+          </ul>
+              ))}
+          </div>
+          <div 
+          className="gallery"
+           style={{ display: Number(priceFilter) === 0 ? "" : "none" }}
+          >
             {filteredOutfits
               .filter((outfit) => outfit.gender === "men")
               .map((outfit) => (

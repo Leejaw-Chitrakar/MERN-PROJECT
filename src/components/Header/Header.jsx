@@ -2,7 +2,7 @@
 import React from "react";
 import "./Header.css";
 
-const Header = ({ onSignIn, onSignUp }) => {
+const Header = ({ handleCart, onSignIn, onSignUp }) => {
   return (
     <header>
       <div className="logo">

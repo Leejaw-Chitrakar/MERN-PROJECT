@@ -1,6 +1,6 @@
 // const mongoose = require('mongoose');
 import mongoose from "mongoose";
-const dbName = "inotebook"  
+const dbName = "VibeCulture"  
 const mongoURI = "mongodb://localhost:27017"
 
 const connectToMongo = async () =>{
