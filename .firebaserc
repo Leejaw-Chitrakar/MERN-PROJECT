@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "vibecouture"
+  },
+  "targets": {
+    "kaaputale": {
+      "hosting": {
+        "site": "vibecouture"
+      }
+    }
+  }
+}
