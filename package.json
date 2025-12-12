@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "antd": "^6.1.0",
+    "concurrently": "^9.2.1"
+  }
+}
