@@ -19,6 +19,7 @@ const LoginPage = () => {
       navigate("/");
       message.success("Login Successful");
       notification.success("Login successful");
+      console.log("Hello world");
     } catch (err) {
       console.error(err);
       message.error("Login unsuccessful");
