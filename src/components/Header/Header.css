@@ -124,3 +124,23 @@ header {
     font-size: 0.85rem;
   }
 }
+
+/* Responsive logo image support
+   - Targets `<img>` inside `.logo` and a helper `.logo-img` class.
+   - Uses `clamp()` for a responsive height while keeping aspect ratio.
+*/
+.logo img,
+.logo .logo-img {
+  display: block;
+  width: auto;
+  height: clamp(32px, 6vw, 64px); /* min 32px, responsive, max 64px */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .logo img,
+  .logo .logo-img {
+    height: clamp(28px, 8vw, 48px);
+  }
+}

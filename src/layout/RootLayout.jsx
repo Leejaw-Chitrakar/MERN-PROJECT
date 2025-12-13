@@ -30,6 +30,7 @@ const RootLayout = () => {
       <header>
         <div className="logo">
           <i className="fas fa-tshirt"></i>
+          <img src=".\src\assets\logo.png" alt="logo" />          
           <Link to="/" style={{ textDecoration: "none" }}>
             <span>VibeCouture</span>
           </Link>
