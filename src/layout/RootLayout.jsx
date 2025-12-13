@@ -24,7 +24,7 @@ const RootLayout = () => {
     navigate("/signup");
   };
 
-  const { cartCount, cartTotal } = useCart();
+  const { cartCount} = useCart();
   return (
     <div>
       <header>

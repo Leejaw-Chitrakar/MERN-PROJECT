@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "./layout/RootLayout";
 import Home from "./pages/Home";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import Login from "./pages/Login";
 import Profile from "./pages/Profile"
+// import Alert from "./pages/Alert";
 import Cart from "./pages/Cart";
 // import Complains from './pages/Complains'
 // import Profile from './pages/Profile'
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "login",
-        element: <LoginPage />,
+        element: <Login />,
       },
       {
         path: "signup",
