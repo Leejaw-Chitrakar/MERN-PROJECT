@@ -4,16 +4,27 @@ import "./OutfitCard.css";
 
 const OutfitCard = ({ outfit, onView3D, onAddToCart, onBuyNow }) => {
   return (
-    <div className="outfit-card">
-      <img
-        src={outfit.image}
-        alt={outfit.name}
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src =
-            "https://placehold.co/400x300/cccccc/333333?text=Image+Error";
-        }}
-      />
+    <div className="outfit-card" onClick={() => { if (onView3D) onView3D(outfit); }}>
+      <div className="image-wrapper">
+        <img
+          src={outfit.image}
+          alt={outfit.name}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src =
+              "https://placehold.co/400x300/cccccc/333333?text=Image+Error";
+          }}
+        />
+        <button
+          className="view3d-badge"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onView3D) onView3D(outfit);
+          }}
+        >
+          3D View
+        </button>
+      </div>
       <div className="outfit-details">
         <h3>{outfit.name}</h3>
         <p>{outfit.description}</p>
